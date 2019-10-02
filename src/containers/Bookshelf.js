@@ -5,6 +5,7 @@ const Bookshelf = props => {
   return (
     <div>
       <h1>Book Shelf</h1>
+      <Book />
       <ul>{/*render list of books here*/}</ul>
     </div>
   );
