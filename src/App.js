@@ -18,11 +18,16 @@ class App extends Component {
         books: bookObjs
       }))
   }
+  addBooksToShelf=(book)=>{
+    this.setState({
+      bookShelf: [...this.state.bookShelf, book]
+    })
+  }
   render() {
     console.log(this.state.books)
     return (
       <div className="book-container">
-        <BookList books={this.state.books}/>
+        <BookList clickHendler={this.addBooksToShelf} books={this.state.books}/>
         <Bookshelf books={this.state.bookShelf}/>
       </div>
     );

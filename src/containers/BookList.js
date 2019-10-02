@@ -5,7 +5,7 @@ import Form from "../components/Form";
 class BookList extends Component {
 
   oneBook=()=>{
-    return this.props.books.map(book=><Book key={book.id}book={book}/>)
+    return this.props.books.map(book => <Book key={book.id} book={book} clickHendler={this.props.clickHendler}/>)
   }
   render() {
     return (
