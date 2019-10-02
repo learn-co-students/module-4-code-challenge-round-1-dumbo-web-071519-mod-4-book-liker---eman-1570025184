@@ -57,6 +57,7 @@ class App extends Component {
       }, body: JSON.stringify(book)
   }
     fetch(`http://localhost:3005/books`, config).then(res => res.json()).then(data => this.getBooks())
+    event.target.reset()  // not sure why this isn't resetting my form values but should be blanking them? 
   }
 
 
