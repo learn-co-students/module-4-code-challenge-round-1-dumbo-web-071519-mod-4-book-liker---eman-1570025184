@@ -15,7 +15,7 @@ class BookList extends Component {
     return (
       <div className="book-list">
         <h1>Book List</h1>
-        <Form handleSubmit={this.props.handleSubmit}/>
+        <Form handleSubmitPersist={this.props.handleSubmitPersist}/>
         <ul>{allBooks}</ul>
       </div>
     );

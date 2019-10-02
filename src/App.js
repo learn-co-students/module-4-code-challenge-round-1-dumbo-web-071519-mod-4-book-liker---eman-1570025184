@@ -12,9 +12,13 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.getBooks()
+  }
+
+  getBooks = () =>{
     fetch(`http://localhost:3005/books`)
-    .then(res => res.json())
-    .then( data => this.addBooksToState(data))
+      .then(res => res.json())
+      .then(data => this.addBooksToState(data))
   }
 
   addBooksToState = (data) => {
@@ -32,6 +36,7 @@ class App extends Component {
     }
   }
 
+  // this is my inital submit handler without persistence. 
   handleSubmit = (event, book) => {
     event.preventDefault()
     this.setState({
@@ -39,6 +44,21 @@ class App extends Component {
     })
     event.target.reset()
   }
+
+  // this is how i would persist data on submit. Make a POST fetch request to the db with the body being
+  // the this.state that i passed up as 'book' in the handleSubmit above 
+  handleSubmitPersist = (event, book) => {
+    event.preventDefault()
+    console.log(book)
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }, body: JSON.stringify(book)
+  }
+    fetch(`http://localhost:3005/books`, config).then(res => res.json()).then(data => this.getBooks())
+  }
+
 
   handleBookShelfClick = (bookObj) => {
     console.log("a bookshelf was clicked")
@@ -54,7 +74,7 @@ class App extends Component {
   render() {
     return (
       <div className="book-container">
-        <BookList books={this.state.books} handleBookListClick={this.handleBookListClick} handleSubmit={this.handleSubmit}/>
+        <BookList books={this.state.books} handleBookListClick={this.handleBookListClick} handleSubmitPersist={this.handleSubmitPersist}/>
         <Bookshelf bookshelf={this.state.bookshelf} handleBookShelfClick={this.handleBookShelfClick}/>
       </div>
     );
