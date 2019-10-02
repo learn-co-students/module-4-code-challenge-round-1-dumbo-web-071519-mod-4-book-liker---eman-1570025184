@@ -13,18 +13,22 @@ class App extends Component {
     };
   }
 
-  render() {
-    return (
-      <div className="book-container">
-        <BookList />
-        <Bookshelf />
-      </div>
-    );
-  }
   componentDidMount() {
     fetch('http://localhost:3005/books')
       .then(response => response.json())
       .then(data => this.setState({ data }));
 }
+  render() {
+    return (
+      <div className="App">
+        {/* { this.state.books
+           <BookList books= { this.state.books } />
+           <Bookshelf books={ this.state.books } />
+        } */}
+      </div>
+    );
+  }
 }
+
+
 export default App;
