@@ -23,12 +23,19 @@ class App extends Component {
       bookShelf: [...this.state.bookShelf, book]
     })
   }
+  removeBooksFromShelf = (book) => {
+    let newArr = this.state.bookShelf.filter(el=>el.id!==book.id)
+    
+    this.setState({
+      bookShelf: newArr
+    })
+  }
   render() {
     console.log(this.state.books)
     return (
       <div className="book-container">
         <BookList clickHendler={this.addBooksToShelf} books={this.state.books}/>
-        <Bookshelf books={this.state.bookShelf}/>
+        <Bookshelf clickHendler={this.removeBooksFromShelf} books={this.state.bookShelf}/>
       </div>
     );
   }
