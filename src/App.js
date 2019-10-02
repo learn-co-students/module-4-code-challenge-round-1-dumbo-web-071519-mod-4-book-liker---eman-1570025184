@@ -19,9 +19,13 @@ class App extends Component {
       }))
   }
   addBooksToShelf=(book)=>{
-    this.setState({
-      bookShelf: [...this.state.bookShelf, book]
-    })
+    let isExist = this.state.bookShelf.find(el=>el.id===book.id)
+    if(isExist){}
+    else {
+      this.setState({
+        bookShelf: [...this.state.bookShelf, book]
+      })}
+    
   }
   removeBooksFromShelf = (book) => {
     let newArr = this.state.bookShelf.filter(el=>el.id!==book.id)
@@ -32,7 +36,7 @@ class App extends Component {
   }
 
   addBookToBookList=(book)=>{
-    console.log(book)
+    
    
     this.setState({
       books: [...this.state.books, book]
