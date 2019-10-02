@@ -23,7 +23,7 @@ class App extends Component {
     if(isExist){}
     else {
       this.setState({
-        bookShelf: [...this.state.bookShelf, book]
+        bookShelf: [book,...this.state.bookShelf]
       })}
     
   }
@@ -37,9 +37,20 @@ class App extends Component {
 
   addBookToBookList=(book)=>{
     
-   
+    fetch('http://localhost:3005/books',
+    {
+      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      body: JSON.stringify({
+        title: book.title,
+        author: book.author,
+        img: book.img,
+      
+    })}
+    )
+      
     this.setState({
-      books: [...this.state.books, book]
+      books: [book,...this.state.books ]
     })
   }
   render() {

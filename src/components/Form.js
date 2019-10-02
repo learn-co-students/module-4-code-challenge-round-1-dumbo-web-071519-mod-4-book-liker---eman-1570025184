@@ -21,18 +21,15 @@ class Form extends React.Component {
   render() {
 console.log(this.props)
     return <form onSubmit={this.onSubmitHendler}>
-      <label>
-        Title:
-    <input type="text" name="title" value={this.state.title} onChange={this.onChange}/>
-      </label>
-      <label>
-        Author:
-    <input type="text" name="author" value={this.state.author} onChange={this.onChange}/>
-      </label>
-      <label>
-        Image:
-    <input type="text" name="img" value={this.state.img} onChange={this.onChange}/>
-      </label>
+     
+    <input type="text" name="title" placeholder="title" value={this.state.title} onChange={this.onChange}/>
+     
+     
+    <input type="text" name="author" placeholder="author" value={this.state.author} onChange={this.onChange}/>
+  
+      
+    <input type="text" name="img" placeholder="author" value={this.state.img} onChange={this.onChange}/>
+    
       <input type="submit" value="Submit" />
     </form>;
   }
