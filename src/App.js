@@ -8,9 +8,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      data: null,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -18,13 +16,12 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.setState({ data }));
 }
+
   render() {
     return (
       <div className="App">
-        {/* { this.state.books
-           <BookList books= { this.state.books } />
-           <Bookshelf books={ this.state.books } />
-        } */}
+           <BookList />
+           <Bookshelf />   
       </div>
     );
   }

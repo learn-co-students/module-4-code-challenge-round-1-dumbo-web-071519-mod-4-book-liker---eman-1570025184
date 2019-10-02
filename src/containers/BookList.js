@@ -12,7 +12,7 @@ class BookList extends Component {
   componentDidMount() {
     let books = [];
 
-    fetch()
+    fetch(`http://localhost:3005/books`)
       .then(response => response.json())
       .then(data => {
         this.setState({ books: data })
@@ -27,8 +27,9 @@ class BookList extends Component {
         <Book />
         <ul>{
           this.state.books.map(book => {
-            return <li key={`book-${book.id}`}>{book.name}</li>
-          })}}
+            // <img className="img-responsive" src={logo} alt="logo"/>
+            return <li key={`book-${book.id}`}>{book.title}</li>
+          })}
           </ul>
       </div>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 class Form extends React.Component {
   render() {
-    return <h1>{<form>
+    return <h5>{<form>
       <label>
         Book Title:
         <input type="text" name="title" />
@@ -16,7 +16,8 @@ class Form extends React.Component {
         <input type="text" name="img" />
       </label>
       <input type="submit" value="Submit" />
-    </form>}</h1>;
+    </form>}</h5>;
+    
   }
 }
 
