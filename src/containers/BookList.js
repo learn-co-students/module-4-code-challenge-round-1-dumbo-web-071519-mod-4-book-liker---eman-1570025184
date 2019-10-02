@@ -8,10 +8,11 @@ class BookList extends Component {
     return this.props.books.map(book => <Book key={book.id} book={book} clickHendler={this.props.clickHendler}/>)
   }
   render() {
+    console.log(this.props)
     return (
       <div className="book-list">
         <h1>Book List</h1>
-        <Form />
+        <Form submitHendler={this.props.submitHendler}/>
         <ul>{this.oneBook()}</ul>
       </div>
     );

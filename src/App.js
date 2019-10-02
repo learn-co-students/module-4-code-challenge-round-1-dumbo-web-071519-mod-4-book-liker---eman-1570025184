@@ -30,11 +30,19 @@ class App extends Component {
       bookShelf: newArr
     })
   }
+
+  addBookToBookList=(book)=>{
+    console.log(book)
+   
+    this.setState({
+      books: [...this.state.books, book]
+    })
+  }
   render() {
     console.log(this.state.books)
     return (
       <div className="book-container">
-        <BookList clickHendler={this.addBooksToShelf} books={this.state.books}/>
+        <BookList submitHendler={this.addBookToBookList}clickHendler={this.addBooksToShelf} books={this.state.books}/>
         <Bookshelf clickHendler={this.removeBooksFromShelf} books={this.state.bookShelf}/>
       </div>
     );
